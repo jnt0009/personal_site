@@ -1,0 +1,71 @@
+<html lang="en">
+    <link rel="stylesheet" href="../../assets/style.css">
+<body>
+
+  <nav class="main-nav" id="main-nav">
+    <div style="height:80px;background: rgb(51,74,92);padding-top: 1px;"><h2 class="text-center" style="color:#fff; letter-spacing:2px;">MENU</h2></div>
+    <ul class="nav nav-pills nav-stacked">
+      <li class="active"><a href="#"><i class="fa fa-home fa-fw"></i>&nbsp; Home</a></li>
+      <li><a href="#about"><i class="fa fa-user fa-fw"></i>&nbsp; About</a></li>
+      <li><a href="#what-i-do"><i class="fa fa-signal fa-fw"></i>&nbsp; What I do</a></li>
+      <li><a href="#work"><i class="fa fa-briefcase fa-fw"></i>&nbsp; Recent Work</a></li>
+      <li><a href="#contact"><i class="fa fa-envelope-o fa-fw"></i>&nbsp; Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrap">
+
+    <div class="jumbotron">
+      <div style="margin-top:130px" class="container">
+        <a href="#main-nav" class="h5 open-menu"><i style="color:#fff; position: relative; bottom:120px; cursor:pointer;" class="fa fa-bars fa-2x fa-fw"></i></a>
+        <a href="#" class="h5 close-menu"><i style="color:#fff; position: relative; bottom:120px; cursor:pointer;" class="fa fa-times fa-2x fa-fw"></i></a>
+        <h1>Jamarius N. Taylor</h1>
+        <div class="spacer"></div>
+        <!-- <h1>Designer + Developer</h1> -->
+        <div class="spacer"></div>
+        <hr><hr>
+        <h2 class="text-center">Data Scientist</h2>
+      </div>
+    </div>
+
+    <div class="section" id="about"><h1>Data’s Hierarchy of Needs</h1><hr></div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="well">
+            <img src="../../assets/primary.png" style="height: 350px; width:350px">
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="well">
+            <iframe src="https://shiny-py-aedsdao4sq-uc.a.run.app" title="Shiny For Python"></iframe>
+            <!-- <p><a href="#form" class="btn btn-default">Hire me</a></p> -->
+          </div>
+          <div class="well">
+            <h2>Shiny for Python + Google Cloud Run</h2>
+            <i>If you are just looking for a github repo you can find it <a href="https://github.com/jnt0009/shiny_py">here</a></i>
+            <h3>The Plan</h3>
+            <p>The plan here is to create a simple shiny app, but we are using python and we want to host it on Google Cloud Platform (GCP).  First we are going to build a simple shiny for python example site.  Second we are going to need to serve this site some how.  Third we will need to containerize the operation.  Finally we need to setup continous deployment with Google Cloud Run and Google Cloud Build.</p>
+            <h3>Prerequisites</h3>
+            <ul>
+              <li> Docker Desktop installed </li>
+              <li> A github repo</li>
+              <li> A GCP Instance</li>
+              <li> The Cloud Run API enabled  </li>
+            </ul>
+            <h3>Step 1</h3>
+            This is not going to be a fancy app we are hoping to create with shiny.  We just want to prove we can sucessfully build something locally and deploy it with Google Cloud Run.   This means we are going to copy and paste the code from 
+            <a href="https://shinylive.io/py/examples/#basic-app"> here </a>.  Place this code in a file called "app.py".  This app should work out of the box according to the website code.   
+            <h3>Step 2</h3>
+            The next step is going to be finding a way to serve this site from your local machine.  Shiny for python actually works with <a href="https://www.uvicorn.org/">uvicorn</a>.  This means that we can use the same commands here that we would there.
+            <i>uvicorn app:app --host 0.0.0.0  --port 8080</i>  should start your local server and allow you to view your app on localhost:8080  
+            <h3>Step 3</h3>
+            Now we must containerize this entire operation.  You can head over to my <a href="https://github.com/jnt0009/shiny_py/blob/master/Dockerfile">github</a> to download the needed docker file.  The comments there should tell you how everything works and what each command does. Once you are sure that the container behaves as you expect it locally you can move on to the next step.
+            <h3>Step 4</h3>
+            Finally you can head over to your GCP instance and go to cloud run and create a new service.  On the first selection choose <i>Continuously deploy new revisions from a source repository</i>  This will allow you to select the SET UP WITH CLOUD BUILD option.  Once you click that you should be able to choose your repo provider (Github or Bitbucket).  Once you authenticate you can select your repo.  You then need to select the production branch of your repo.  The default from Github is <i>^main$</i>.  If you have a different production branch replace the text.  Next select Dockerfile as the build type. Leave everything else as it is except for the Authentication section where you need to <i>Allow unauthenticated invocations </i>.  After that hit create. 
+          </div>
+        </div>
+    </div><!--/.container-->
+</body>
+</html>

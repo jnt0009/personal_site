@@ -22,6 +22,18 @@ router.get('/',function(req,res){
     //__dirname : It will resolve to your project folder.
   });
 
+
+router.get("/blog/data_hierarchy_of_needs", function(req, res){
+  console.log(router.stack);
+  res.sendFile(`${__dirname}/blogs/data_hierarchy_of_needs/blog.html`)
+});
+
+router.get("/blog/shiny_for_py", function(req, res){
+  console.log(router.stack);
+  res.sendFile(`${__dirname}/blogs/shiny_for_py/blog.html`)
+});
+
+
 const startServer = async function() {
     app.use('/', router);   
     app.listen(port, () => console.log(`Example app listening on port ${port}!`));
