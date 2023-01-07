@@ -8,6 +8,8 @@ COPY package.json /site
 
 COPY assets /site/assets
 
+COPY blogs /site/blogs
+
 COPY index.js /site
 
 COPY main.html /site
