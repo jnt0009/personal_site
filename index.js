@@ -22,6 +22,10 @@ router.get('/',function(req,res){
     //__dirname : It will resolve to your project folder.
   });
 
+router.get("/links", function(req, res){
+  console.log(router.stack);
+  res.sendFile(`${__dirname}/links/links.html`)
+});
 
 router.get("/blog/data_hierarchy_of_needs", function(req, res){
   console.log(router.stack);
