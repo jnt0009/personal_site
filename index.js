@@ -27,16 +27,12 @@ router.get("/links", function(req, res){
   res.sendFile(`${__dirname}/links/links.html`)
 });
 
-router.get("/blog/data_hierarchy_of_needs", function(req, res){
-  console.log(router.stack);
-  res.sendFile(`${__dirname}/blogs/data_hierarchy_of_needs/blog.html`)
-});
 
-router.get("/blog/shiny_for_py", function(req, res){
-  console.log(router.stack);
-  res.sendFile(`${__dirname}/blogs/shiny_for_py/blog.html`)
-});
 
+router.get("/blog/:id", function(req, res){
+  console.log(req);
+  res.sendFile(`${__dirname}/blogs/${req.params.id}/blog.html`)
+});
 
 const startServer = async function() {
     app.use('/', router);   
