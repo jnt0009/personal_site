@@ -14,6 +14,8 @@ COPY index.js /site
 
 COPY main.html /site
 
+COPY links /site/links
+
 WORKDIR /site
 
 EXPOSE 8080/tcp
