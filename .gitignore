@@ -108,3 +108,5 @@ test.*
 junk.*
 output.html
 *.bak
+
+.DS_Store

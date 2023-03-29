@@ -120,7 +120,7 @@ code,
 kbd,
 pre,
 samp {
-    font-family: monospace, monospace;
+    font-family: Georgia, 'Times New Roman', Times, serif, monospace;
     font-size: 1em
 }
 
