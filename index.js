@@ -12,6 +12,7 @@ const port = process.env.PORT || 8080;
 
 // const view = __dirname + '/views'
 // const portfolio = __dirname + '/assets/portfolio'
+
 app.use(express.static('public'));
 app.use('/assets', express.static(__dirname + '/assets'));
 

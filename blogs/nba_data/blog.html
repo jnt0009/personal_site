@@ -1,0 +1,59 @@
+<html lang="en">
+    <link rel="stylesheet" href="../../assets/style.css">
+<body>
+
+  <nav class="main-nav" id="main-nav">
+    <div style="height:80px;background: rgb(51,74,92);padding-top: 1px;"><h2 class="text-center" style="color:#fff; letter-spacing:2px;">MENU</h2></div>
+    <ul class="nav nav-pills nav-stacked">
+      <li class="active"><a href="#"><i class="fa fa-home fa-fw"></i>&nbsp; Home</a></li>
+      <li><a href="#about"><i class="fa fa-user fa-fw"></i>&nbsp; About</a></li>
+      <li><a href="#what-i-do"><i class="fa fa-signal fa-fw"></i>&nbsp; What I do</a></li>
+      <li><a href="#work"><i class="fa fa-briefcase fa-fw"></i>&nbsp; Recent Work</a></li>
+      <li><a href="#contact"><i class="fa fa-envelope-o fa-fw"></i>&nbsp; Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrap">
+
+    <div class="jumbotron">
+      <div style="margin-top:130px" class="container">
+        <a href="#main-nav" class="h5 open-menu"><i style="color:#fff; position: relative; bottom:120px; cursor:pointer;" class="fa fa-bars fa-2x fa-fw"></i></a>
+        <a href="#" class="h5 close-menu"><i style="color:#fff; position: relative; bottom:120px; cursor:pointer;" class="fa fa-times fa-2x fa-fw"></i></a>
+        <h1>Jamarius N. Taylor</h1>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <hr><hr>
+        <h2 class="text-center">Data Scientist</h2>
+      </div>
+    </div>
+
+    <div class="section" id="about"><h1>Thoughts on NBA Data - Acquistion</h1><hr></div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="well">
+            <a href="/">
+              <img src="../../assets/primary.png" style="height: 350px; width:350px">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="well">
+            <h3>Overview</h3>
+            <p>There comes a time -sometimes several times- in a Data Scientist's life where they think "I am going to apply my craft to my favorite sport". For me that time is now. The main issue I and everyone that has come before me faces is that the this is no small task and in fact 3 different tasks galavanting as 1.  First we need to get at this data and the manicured datasets are expensive so we will have to go the scraping route. We also need to store all of this data properly so we don't have to continously scrape the info. So now this has become a Data Engineering problem. I am going to keep up with this process and mark my journey here. Below you will find my plan of action. Later we'll revisit this and see what could have gone better.</p>
+            <h3>Identify A Project</h3>
+            <p>I have been wanting to go through Richard McElreath's Statistical Rethinking series online. I also want to be able to practice on a dataset that interests me. This seems like as good of a reason if any for this data so it looks like I've found my project. The gist being if I am going to doing some causal inference and Bayesian techniques I want to prioritize getting metrics. </p>
+            <h3>Identify a source</h3>
+            <p>This was actually the easiest part. www.basketball-reference.com has all the data I could want including boxscores for every game last season. The difficult part will be scraping all of it.</p>
+            <h3>Identify a plan</h3>
+            <p>The plan here is to scrape each boxscore of each game. That's 30 teams who each play 82 games or 2,460 scrapes that need to be made. I want to do this respectfully so we will have to put pauses in between runs as to not DDoS www.basketball-reference.com so we won't run it in parallel. The plan will be to use python and beautifulSoup4 to scrape and parse all the box scores into tables. First we will need a list of all boxscore links. We can gather that by paging through <a href="https://www.basketball-reference.com/boxscores/?month=4&day=14&year=2024"> pages like this </a> and gathering up all the box score links we find. By doing this in python we can setup these as cloud functions later on to make this project a bit more future proof. Once we are happy with our tables we will store them in Google Cloud Storage so they can be ingested by BigQuery.</p>
+            <h3>Summary</h3>
+            <p>I plan to apply some of the methods from Richard McElreath's Statistical Rethinking series on NBA data from the past season. To do this I am going to need to scrape all of the data for the past season and store it somewhere neatly that I can access.</p>
+            <!-- <p><a href="#form" class="btn btn-default">Hire me</a></p> -->
+          </div>
+        </div>
+    </div><!--/.container-->
+
+</body>
+</html>
