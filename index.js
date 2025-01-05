@@ -12,8 +12,7 @@ const path = require('path');
 const router = express.Router();
 const port = process.env.PORT || 8080;
 
-// const view = __dirname + '/views'
-// const portfolio = __dirname + '/assets/portfolio'
+
 
 app.use(express.static('public'));
 app.use('/assets', express.static(__dirname + '/assets'));
@@ -30,8 +29,6 @@ router.get("/links", function(req, res){
   res.sendFile(`${__dirname}/links/links.html`)
 });
 
-
-
 router.get("/blog/:id", function(req, res){
   console.log(req);
   res.sendFile(`${__dirname}/blogs/${req.params.id}/blog.html`)
@@ -40,7 +37,7 @@ router.get("/blog/:id", function(req, res){
 // Temporary routes 
 router.get("/data_and_dining", function(req, res){
   console.log(req);
-  let tmp_output = fs.readFileSync(`${__dirname}/data_and_dining/blog.md`, 'utf8');
+  let tmp_output = fs.readFileSync(`${__dirname}/blogs/data_and_dining/blog.md`, 'utf8');
   res.send(marked(tmp_output.toString()));
 });
 
