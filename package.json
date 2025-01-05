@@ -1,10 +1,10 @@
 {
   "name": "personal site",
   "version": "0.1.0",
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
+    "dotenv": "^14.2.0",
     "express": "^4.17.2",
-    "dotenv": "^14.2.0"
+    "marked": "^15.0.5"
   }
 }

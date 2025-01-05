@@ -1,8 +1,10 @@
 const express = require("express");
 require('dotenv').config();
+
 // require("./pitCrew.js");
 
 const fs = require('fs');
+const { marked } = require("marked");
 
 const app = express();
 
@@ -33,6 +35,13 @@ router.get("/links", function(req, res){
 router.get("/blog/:id", function(req, res){
   console.log(req);
   res.sendFile(`${__dirname}/blogs/${req.params.id}/blog.html`)
+});
+
+// Temporary routes 
+router.get("/data_and_dining", function(req, res){
+  console.log(req);
+  let tmp_output = fs.readFileSync(`${__dirname}/data_and_dining/blog.md`, 'utf8');
+  res.send(marked(tmp_output.toString()));
 });
 
 const startServer = async function() {
